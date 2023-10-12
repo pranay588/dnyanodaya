@@ -8,19 +8,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 
-
-
-
-
-
-
-
 export const img = async(req,res)=>{
     try{
-        const obj = {prompt:"car on road"};
+        console.log("running....")
+        const obj = req.body;
+        console.log(obj)
         const img1 = await axios({
             method:'post',
-            url:'http://c036-34-80-0-234.ngrok-free.app/generate_images',
+            url:'http://4a9f-34-125-46-206.ngrok-free.app/generate_images',
             data: obj,
             responseType: 'arraybuffer'
         });
@@ -41,7 +36,6 @@ export const img = async(req,res)=>{
         savePhotoFromAPI();
         res.end().status(200);
     }catch(err){
-        console.log(err);
+         console.log(err);
     }
 }
-
